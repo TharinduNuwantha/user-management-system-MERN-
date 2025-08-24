@@ -10,3 +10,5 @@ app.use(
 )
 
 app.use(express.json())
+
+module.exports = app;
