@@ -1,16 +1,8 @@
-const users = [
-    {
-        id:1,
-        name:'tharindu'
-    },
-    {
-        id:2,
-        name:'rashmi'
-    }
-];
+const User = require('./Moddles');
 
-const getUsers = (cb) =>{
-    cb(users);
+
+const getUsers = (req,res,next) =>{
+    
 }
 
 const getUserById = (id,cb)=>{
