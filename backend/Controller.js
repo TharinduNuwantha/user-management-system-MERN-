@@ -1,3 +1,4 @@
+const { response } = require('./App');
 const User = require('./Moddles');
 
 
@@ -11,6 +12,20 @@ const getUsers = (req,res,next) =>{
         })
 }
 
+const addUser = (req,res,next)=>{
+    const user = new User({
+        id:req.body.id,
+        name:req.body.name
+    })
+    user.save()
+        .then(Response => {
+            res.json({response});
+        })
+        .catch((error) => {
+            res.json({error});
+        })
+}
+
+
 
 exports.getUsers = getUsers;
-exports.getUserById = getUserById;
