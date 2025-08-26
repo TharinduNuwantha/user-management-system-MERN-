@@ -14,15 +14,14 @@ app.use(express.json())
 
 
 app.get('/users',(req,res)=>{
-    controller.getUsers((users)=>{
-        res.send(users);
+    controller.getUsers((req,res,next) =>{
+        res.send();
     })
 }) 
 
-app.get('/user',(req,res)=>{
-    const id = req.query.id
-    controller.getUserById(id,user =>{
-         res.send(user);
+app.post('/user',(req,res)=>{
+    controller.addUser(req.body,(callback)=>{
+        res.send();
     })
 })
 module.exports = app;
