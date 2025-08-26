@@ -2,13 +2,15 @@ const User = require('./Moddles');
 
 
 const getUsers = (req,res,next) =>{
-    
+    User.find()
+        .then(response => {
+            res.json({response});
+        })
+        .catch(error => {
+            res.json({error});
+        })
 }
 
-const getUserById = (id,cb)=>{
-    const user = users.find(user => user.id == id);
-    cb(user);
-}
 
 exports.getUsers = getUsers;
 exports.getUserById = getUserById;
