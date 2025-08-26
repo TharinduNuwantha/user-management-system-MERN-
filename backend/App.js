@@ -26,10 +26,16 @@ app.post('/createuser',(req,res)=>{
 })
 
 app.post('/updateeuser',(req,res)=>{
-    controller.addUser(req.body,(callback)=>{
+    controller.updateUser(req.body,(callback)=>{
         res.send();
     })
 })
+app.post('/deleteuser',(req,res)=>{
+    controller.deleteUser(req.body,(callback)=>{
+        res.send();
+    })
+})
+
 module.exports = app;
 //milosstories64
 //yvTeETYdGenzuHUj
