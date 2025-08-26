@@ -5,11 +5,16 @@ const User = require('./Moddles');
 const getUsers = (req,res,next) =>{
     User.find()
         .then(response => {
+            if(response.length === 0){
+                return res.json({message:"No Data"})
+            }
             res.json({response});
         })
         .catch(error => {
             res.json({error});
         })
+
+        
 }
 
 const addUser = (req,res,next)=>{
