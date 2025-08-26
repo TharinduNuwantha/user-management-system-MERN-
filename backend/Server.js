@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoos = require('mongoos');
+const router = require('./Routes');
 
 app.use(cors());
 app.use(express.json())
@@ -22,3 +23,6 @@ const server = app.listen(3001,'127.0.0.1',()=>{
     console.log(`node server is listenconst express = require('express');
 ing to ${server.address().port}`);
 });
+
+
+app.use('/api',router);
