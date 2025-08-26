@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const mongoos = require('mongoos');
+const mongoose = require('mongoose');
+
 const router = require('./Routes');
 
 app.use(cors());
@@ -11,7 +12,7 @@ const uri = 'mongodb+srv://milosstories64:yvTeETYdGenzuHUj@cluster0.c5dphhw.mong
 
 const connect = async()=>{
     try{
-       await mongoos.connect(uri);
+       await mongoose.connect(uri);
         console.log("Connected to Mongoos");
     }catch(err){
         console.log("Mongoos Connecting error :( ",err);
@@ -24,5 +25,5 @@ const server = app.listen(3001,'127.0.0.1',()=>{
 ing to ${server.address().port}`);
 });
 
-
+//
 app.use('/api',router);
